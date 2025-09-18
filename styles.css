@@ -1,0 +1,432 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilizando o corpo da página */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1a1a1a; /* Fundo preto */
+    color: #fff;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Estilizando o cabeçalho */
+header {
+    margin-bottom: 40px;
+    padding: 20px 0;
+    border-bottom: 2px solid #6a0dad;
+    text-align: center; /* centraliza o título e o subtítulo */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #b583f0; /* Roxo claro */
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #ccc;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Seção Sobre */
+#sobre {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    padding: 30px;
+    background: rgba(106, 13, 173, 0.1);
+    border-radius: 15px;
+    border: 1px solid #6a0dad;
+    text-align: center; 
+}
+
+#sobre h2 {
+    color: #b583f0;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center; 
+}
+
+#sobre p {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    text-align: justify;
+    text-align: center; 
+}
+
+/* Seção de Tiragens */
+#tiragens {
+    margin-bottom: 50px;
+}
+
+#tiragens h2 {
+    color: #b583f0;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.tiragens-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.tiragem-card {
+    background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+    border: 2px solid #6a0dad;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow: 0 8px 25px rgba(106, 13, 173, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.tiragem-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(106, 13, 173, 0.4);
+    border-color: #b583f0;
+}
+
+.tiragem-card h3 {
+    color: #b583f0;
+    font-size: 1.4rem;
+    margin-bottom: 8px; /* reduz espaço após o título */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tiragem-card h3 i {
+    font-size: 1.2rem;
+}
+
+.tiragem-card p {
+    color: #e0e0e0;
+    font-size: 1rem;
+    margin: 0; /* zera margens padrão do <p> dentro do card */
+    text-align: justify;
+}
+
+/* Container de descrição com altura padronizada */
+.descricao {
+    /* Mantém um tamanho visual parecido entre cards */
+    line-height: 1.18; /* ainda mais compacto */
+    max-height: 9.5em; /* ~6-7 linhas de texto combinadas */
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 16px;
+    flex-grow: 1; /* Ocupa o espaço flexível do card */
+}
+
+.tiragem-card .descricao p {
+    margin: 0; /* sem espaçamento adicional entre parágrafos */
+    white-space: normal;
+}
+
+/* Reforço de especificidade para garantir que não haja margens residuais */
+.tiragens-container .tiragem-card .descricao {
+    line-height: 1.16;
+}
+
+.tiragens-container .tiragem-card .descricao p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.descricao p:first-child { margin-top: 0; }
+.descricao p:last-child { margin-bottom: 0; }
+
+.descricao p:last-child {
+    margin-bottom: 0;
+}
+
+/* Efeito de fade no final para indicar continuação */
+.descricao::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2.5em;
+    background: linear-gradient(to bottom, rgba(26,26,26,0), rgba(26,26,26,1));
+}
+
+/* Descrição expandida remove limite e o fade */
+.descricao.expandida {
+    max-height: none;
+}
+
+.descricao.expandida::after {
+    display: none;
+}
+
+/* Botão Ver mais/Ver menos */
+.btn-toggle-desc {
+    background: transparent;
+    color: #b583f0;
+    border: 1px solid #6a0dad;
+    border-radius: 16px;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    align-self: center;
+    margin: 6px 0 14px; /* acima do preço */
+}
+
+.btn-toggle-desc:hover {
+    color: #fff;
+    background: #6a0dad;
+    box-shadow: 0 4px 14px rgba(106,13,173,0.35);
+}
+
+.preco {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #b583f0;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(106, 13, 173, 0.2);
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* Botões de WhatsApp */
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(45deg, #25D366, #128C7E);
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    min-width: 200px;
+    margin-top: auto; /* Empurra o botão para a base do card */
+    align-self: center;
+}
+
+.btn-whatsapp:hover {
+    background: linear-gradient(45deg, #128C7E, #25D366);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp i {
+    font-size: 1.2rem;
+}
+
+/* Seção de Contato Destaque */
+#contato-destaque {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, rgba(106, 13, 173, 0.2), rgba(181, 131, 240, 0.1));
+    border-radius: 20px;
+    margin: 50px auto;
+    max-width: 800px;
+    border: 2px solid #6a0dad;
+}
+
+#contato-destaque h2 {
+    color: #b583f0;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+#contato-destaque p {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-whatsapp-destaque {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(45deg, #25D366, #128C7E);
+    padding: 18px 30px;
+    border-radius: 30px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: all 0.3s;
+    border: 3px solid transparent;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp-destaque:hover {
+    background: linear-gradient(45deg, #128C7E, #25D366);
+    transform: scale(1.08);
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+    border-color: #fff;
+}
+
+.btn-whatsapp-destaque i {
+    font-size: 1.5rem;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 50px;
+    padding: 30px 20px;
+    border-top: 2px solid #6a0dad;
+    text-align: center;
+}
+
+footer p {
+    color: #ccc;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.redes-sociais-footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.redes-sociais-footer a {
+    color: #b583f0;
+    font-size: 1.5rem;
+    transition: color 0.3s, transform 0.2s;
+    text-decoration: none;
+}
+
+.redes-sociais-footer a:hover {
+    color: #fff;
+    transform: scale(1.2);
+}
+
+/* Estilizando os links de redes sociais (para compatibilidade com fale-conosco.html) */
+#redes-sociais {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+#redes-sociais a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    background: #6a0dad;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.2s;
+    width: 200px;
+}
+
+#redes-sociais a i {
+    font-size: 24px;
+}
+
+#redes-sociais a:hover {
+    background: #4b0082;
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    #sobre {
+        padding: 20px;
+        margin: 0 auto 30px;
+    }
+    
+    .tiragens-container {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+        padding: 0 12px;
+    }
+
+    .tiragem-card {
+        padding: 18px;
+    }
+
+    .tiragem-card h3 {
+        font-size: 1.2rem;
+        gap: 8px;
+    }
+
+    .tiragem-card h3 i { font-size: 1rem; }
+
+    #tiragens h2 { font-size: 1.8rem; }
+    #sobre h2 { font-size: 1.6rem; }
+
+    .preco { font-size: 1.2rem; }
+    .btn-whatsapp { min-width: 180px; padding: 10px 16px; }
+    .btn-toggle-desc { font-size: 0.85rem; padding: 6px 10px; }
+    
+    #contato-destaque {
+        padding: 26px 14px;
+        margin: 26px 14px;
+    }
+    
+    .btn-whatsapp-destaque {
+        font-size: 1rem;
+        padding: 14px 22px;
+    }
+}
+
+/* Pequenos celulares */
+@media (max-width: 480px) {
+    body { padding: 14px; }
+    header { margin-bottom: 28px; }
+    header h1 { font-size: 1.6rem; }
+    header p { font-size: 0.95rem; }
+
+    .tiragens-container {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 0 6px;
+    }
+
+    .tiragem-card { padding: 16px; }
+    .tiragem-card h3 { font-size: 1.1rem; }
+    .tiragem-card h3 i { font-size: 0.95rem; }
+    .preco { font-size: 1.05rem; }
+    .btn-whatsapp { width: 100%; min-width: 0; }
+    .btn-whatsapp-destaque { width: 100%; font-size: 0.98rem; }
+
+    #contato-destaque h2 { font-size: 1.4rem; }
+    #contato-destaque p { font-size: 1rem; }
+}
+
+/* Telas médias/grandes: melhora tipografia e largura */
+@media (min-width: 1024px) {
+    header h1 { font-size: 2.8rem; }
+    #tiragens h2 { font-size: 2.4rem; }
+    .tiragens-container { max-width: 1280px; gap: 28px; }
+    .tiragem-card { padding: 26px; }
+}
